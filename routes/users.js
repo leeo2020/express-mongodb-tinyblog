@@ -34,16 +34,16 @@ router.post('/login', function (req, res, next) {
           req.session.isLogin = true
           res.redirect('/')
         } else {
-          console.log('密码错误')
+          // console.log('密码错误')
           res.redirect('/login')
         }
       })
     } else {
-      console.log('用户不存在')
+      // console.log('用户不存在')
       res.redirect('/login')
     }
   }).catch(err => {
-    console.log('数据库无')
+    // console.log('数据库无')
     res.redirect('/login')
   })
 })
