@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-const articleModel = require('../db/articleModel')
+const articleModel = require(path.join(__dirname, '../db/articleModel'))
 const fs = require('fs')
 const multiparty = require('multiparty')
 const moment = require('moment')

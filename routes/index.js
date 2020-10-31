@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const articleModel = require('../db/articleModel.js')
+const path = require('path')
+const articleModel = require(path.join(__dirname, '../db/articleModel.js'))
 const moment = require('moment')
 
 router.get('/', function (req, res, next) {
@@ -40,10 +41,10 @@ router.get('/login', function (req, res, next) {
 })
 
 router.get('/write', function (req, res, next) {
-  	 console.log(req.session.username, req.query.id)
-  	 res.render('write', {
-   		username: req.session.username,
-  	    id: req.query.id
+  console.log(req.session.username, req.query.id)
+  res.render('write', {
+    username: req.session.username,
+    id: req.query.id
   })
 })
 
@@ -53,13 +54,13 @@ router.get('/detail', function (req, res, next) {
 
   id = new Object(id)
   articleModel.findById(id).then(doc => {
-  	var createTimeZH = moment(doc.createTime).format('YYYY/MM/DD HH:mm:ss')
-  	console.log(createTimeZH)
+    var createTimeZH = moment(doc.createTime).format('YYYY/MM/DD HH:mm:ss')
+    console.log(createTimeZH)
     res.render('detail', {
-    	username: req.session.username,
-    	doc,
-    	createTimeZH: createTimeZH
-    	 })
+      username: req.session.username,
+      doc,
+      createTimeZH: createTimeZH
+    })
   })
 })
 module.exports = router

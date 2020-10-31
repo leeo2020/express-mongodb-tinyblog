@@ -1,6 +1,7 @@
 const express = require('express')
+const path = require('path')
 const router = express.Router()
-const userModel = require('../db/userModel')
+const userModel = require(path.join(__dirname, '../db/userModel'))
 const bcrypt = require('bcrypt')
 
 /* GET users listing. */
