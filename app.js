@@ -9,7 +9,7 @@ const favicon = require('serve-favicon')
 const indexRouter = require(path.join(__dirname, './routes/index'))
 const usersRouter = require(path.join(__dirname, './routes/users'))
 const articlesRouter = require(path.join(__dirname, './routes/articles'))
-const db = require(path.join(__dirname, './db/connectDB'))
+const db = require(path.join(__dirname, './db/connectDb'))
 
 var app = express()
 app.use(favicon(path.join(__dirname, './public', './favicon.ico')))

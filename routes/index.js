@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
   var username = req.session.username
   var arr = []
   var pages = 0
-  articleModel.find().count().then(total => {
+  articleModel.find().countDocuments().then(total => {
     pages = Math.ceil(total / size) // 总页数
     articleModel.find().sort({ createTime: -1 }).skip((page - 1) * size).limit(size).then(docs => {
       arr = docs.slice() // 非传统数组
